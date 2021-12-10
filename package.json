@@ -5,7 +5,7 @@
   "main": "scripts/index.js",
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel",
+    "start": "parcel --public-url ./ --no-hmr",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint --quiet \"src/**/*.js\"",
     "compile:sass": "node-sass sass/main.scss css/style.css -w"
@@ -24,9 +24,6 @@
     "node-sass": "^7.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
-    "babel-loader": "^8.2.3",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.3.0",
     "parcel": "^2.0.1",
