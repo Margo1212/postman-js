@@ -20,12 +20,10 @@
     "url": "https://github.com/402-Code/postman-js/issues"
   },
   "homepage": "https://github.com/402-Code/postman-js#readme",
-  "dependencies": {
-    "node-sass": "^7.0.0"
-  },
   "devDependencies": {
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.3.0",
+    "node-sass": "^7.0.0",
     "parcel": "^2.0.1",
     "prettier": "^2.5.1"
   }
