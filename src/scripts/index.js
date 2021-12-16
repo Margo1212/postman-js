@@ -1,20 +1,25 @@
 import createTag from "./utils/createTag.js";
+import httpMethods from "./utils/httpMethods.js";
 
 //Send request DOM API elements
-const divSend = createTag({ className: "div-send-request" });
-const spanSelectAndInput = createTag({
-  tagName: "span",
-  className: "span-select-and-input",
-});
-const selectSend = createTag({ tagName: "select", tagId: "select-send" });
-const inputSend = createTag({ tagName: "input", tagId: "input-send" });
+const divSend = createTag({ className: "send" });
+const selectSend = createTag({ tagName: "select", className: "send__methods" });
+const inputSend = createTag({ tagName: "input", className: "send__url" });
 const btnSend = createTag({
   tagName: "button",
   tagText: "SEND",
-  tagId: "btn-send",
+  className: "send__submit",
 });
 
-divSend.appendChild(spanSelectAndInput);
-spanSelectAndInput.appendChild(selectSend);
-spanSelectAndInput.appendChild(inputSend);
+divSend.appendChild(selectSend);
+divSend.appendChild(inputSend);
 divSend.appendChild(btnSend);
+httpMethods.map((method) => {
+  selectSend.appendChild(
+    createTag({
+      tagName: "option",
+      tagText: method,
+      tagAttrs: [{ key: "value", value: method.toLowerCase() }],
+    })
+  );
+});
