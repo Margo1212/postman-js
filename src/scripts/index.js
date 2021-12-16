@@ -23,4 +23,3 @@ httpMethods.map((method) => {
     })
   );
 });
-
