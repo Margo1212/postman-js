@@ -5,8 +5,8 @@
   "main": "scripts/index.js",
   "source": "src/index.html",
   "scripts": {
-    "test": "jest",
-    "start": "parcel --public-url ./ --no-hmr",
+    "test": "jest --coverage",
+    "start": "parcel --no-hmr",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint --quiet \"src/**/*.js\"",
     "compile:sass": "node-sass sass/main.scss css/style.css -w"
@@ -22,6 +22,10 @@
   },
   "homepage": "https://github.com/402-Code/postman-js#readme",
   "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "babel-jest": "^27.4.5",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.3.0",
     "jest": "^27.4.4",
@@ -29,5 +33,32 @@
     "node-sass": "^7.0.0",
     "parcel": "^2.0.1",
     "prettier": "^2.5.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^/(.*)$": "<rootDir>/src/$1"
+    },
+    "verbose": true,
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "globals": {
+      "NODE_ENV": "test"
+    },
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "testRegex": "(spec|test)[.]js",
+    "collectCoverageFrom": [
+      "./src/**"
+    ]
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
   }
 }
