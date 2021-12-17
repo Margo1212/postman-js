@@ -2,22 +2,22 @@ import axios from "axios";
 
 axios.interceptors.response.use(
   (response) => {
-      return response;
+    return response;
   },
   (error) => {
     const { data, status } = error.response;
     switch (status) {
       case 400:
-        if(data.errors){
-            const modalStateError=[];
-            for (const key of data._error) {
-                if(data.errors[key]){
-                    modalStateError.push(data.error[key])
-                }
+        if (data.errors) {
+          const modalStateError = [];
+          for (const key of data._error) {
+            if (data.errors[key]) {
+              modalStateError.push(data.error[key]);
             }
-            throw modalStateError.flat();
+          }
+          throw modalStateError.flat();
         } else {
-            console.log(data);
+          console.log(data);
         }
         break;
       case 404:
