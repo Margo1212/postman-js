@@ -16,9 +16,11 @@ const requestInfoBodyForm = createTag({tagName: 'form', className: 'request-info
 const textareaLabel = createTag({tagName: 'label', tagAttrs: [{key: 'for', value: 'textarea'}]});
 const requestInfoBodyTextBox = createTag({tagName: 'textarea', className: 'request-info__body-text-box', tagId: 'textarea'});
 
-//Headers and Body container structure
+
+//Headers and Body section structure
 requestInfo.appendChild(requestInfoMainTitle);
 requestInfo.appendChild(requestInfoOptions);
+
 //Label for Headers and Body
 requestInfoOptions.appendChild(requestInfoHeadersTitle);
 requestInfoHeadersTitle.appendChild(headersLink);
@@ -29,6 +31,7 @@ requestInfoBodyTitle.appendChild(bodyLink);
 requestInfo.appendChild(requestInfoBody);
 requestInfoBody.appendChild(requestInfoBodyForm);
 requestInfoBodyForm.appendChild(textareaLabel);
-requestInfoBodyForm.appendChild(requestInfoBodyTextBox);
+requestInfoBodyForm.appendChild(CodeMirror.fromTextArea(requestInfoBodyTextBox, {lineNumbers: true}));
+
 
 document.body.appendChild(requestInfo);
