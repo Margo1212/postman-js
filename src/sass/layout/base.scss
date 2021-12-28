@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $primary-background-color;
+  font-family: $base-font-family;
+  font-size: #{$base-font-size}px;
+  display: grid;
+  grid-template-rows: auto auto px-to-rem(290) 1fr;
+  grid-template-areas:
+    "header"
+    "name"
+    "request-info"
+    "response";
+}
+
+.request-info {
+  grid-area: request-info;
+  padding: 0 px-to-rem(35);
+  position: relative;
+  overflow: hidden;
+  border: $border-color solid 1px;
+
+  #{&}__main-title {
+    color: $primary-text-color;
+    font-weight: 500;
+    font-size: px-to-rem(24);
+    margin: px-to-rem(15) 0;
+  }
+}

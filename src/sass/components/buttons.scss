@@ -1,0 +1,18 @@
+.request-info {
+  #{&}__btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: $secondary-text-color;
+    padding: 10px 0;
+    margin: 0 25px 0 0;
+  }
+
+  #{&}__btn:hover {
+    color: $primary-text-color;
+  }
+
+  #{&}__btn:focus {
+    background: linear-gradient(0deg, rgb(255, 108, 55) 7%, rgb(33, 33, 33) 7%);
+  }
+}
