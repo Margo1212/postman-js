@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <title>PostmanJS</title>
     <script src="scripts/index.js" async defer type="module"></script>
   </head>
@@ -16,10 +22,8 @@
     </section>
     <section class="request-info">
       <h2 class="request-info__main-title">Request information</h2>
-      <ul class="request-info__options">
-        <li class="request-info__headers-title"><a href="">Headers</a></li>
-        <li class="request-info__body-title"><a href="">Body</a></li>
-      </ul>
+      <button class="request-info__btn">Headers</button>
+      <button class="request-info__btn">Body</button>
       <div class="request-info__body">
         <form method="" action="" class="request-info__body-form">
           <label for="textarea"></label>
