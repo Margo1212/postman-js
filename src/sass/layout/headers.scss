@@ -1,0 +1,27 @@
+.request-info {
+  #{&}__headers {
+    display: grid;
+    grid-template-columns: 1fr 5fr 5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: absolute;
+    margin: px-to-rem(20) 0 0 0;
+    width: calc(100% - 70px);
+  }
+
+  #{&}__item{
+    border: $border-color solid 1px;
+    padding: 10px;
+    color: $secondary-text-color;
+  }
+
+  #{&}__item--hd {
+    color: $primary-text-color;
+  }
+
+  #{&}__input {
+    background-color: $primary-background-color;
+    border: none;
+    outline: none;
+    color: $secondary-text-color;
+  }
+}

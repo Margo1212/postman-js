@@ -1,0 +1,30 @@
+.request-info {
+  #{&}__body {
+   width: 100%;
+   position: absolute;
+   left: 0;
+    padding: 0 px-to-rem(35);
+ }
+
+
+  #{&}__body-text-box {
+    border-color: $border-color;
+    background-color: $primary-background-color;
+    outline: none;
+    color: $secondary-text-color;
+    width: 100%;
+    height: px-to-rem(162);
+    margin: px-to-rem(20) 0 0 0;
+    resize: none;
+    padding: px-to-rem(10);
+  }
+
+  #{&}__body-text-box::-webkit-scrollbar {
+    width: px-to-rem(15);
+    outline: 1px solid $border-color;
+}
+
+  #{&}__body-text-box::-webkit-scrollbar-thumb {
+    background-color: $secondary-background-color;
+  }
+}
