@@ -1,5 +1,7 @@
 import createTag from "./utils/createTag.js";
 import httpMethods from "./utils/httpMethods.js";
+import openTab from "./request-info/request-info";
+
 
 //Send request DOM API elements
 const divSend = createTag({ className: "send" });
@@ -32,7 +34,7 @@ const requestInfo = createTag({
 const requestInfoMainTitle = createTag({
   tagName: "h2",
   className: "request-info__main-title",
-  tagText: "Request info",
+  tagText: "Request information",
 });
 
 const headersButton = createTag({
@@ -83,3 +85,5 @@ CodeMirror.fromTextArea(requestInfoBodyTextBox, {
 });
 
 document.body.appendChild(requestInfo);
+
+openTab();
