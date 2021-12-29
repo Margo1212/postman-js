@@ -1,5 +1,6 @@
 import createTag from "./utils/createTag.js";
 import httpMethods from "./utils/httpMethods.js";
+import CodeMirror from "codemirror";
 
 //Send request DOM API elements
 const divSend = createTag({ className: "send" });

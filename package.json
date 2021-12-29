@@ -2,13 +2,13 @@
   "name": "postman-js",
   "version": "1.0.0",
   "description": "Web page to send http requests",
-  "main": "scripts/index.js",
   "source": "src/index.html",
   "scripts": {
     "test": "jest --coverage",
     "start": "parcel --no-hmr",
     "format": "prettier --write \"src/**/*.*\"",
     "lint": "eslint --quiet \"src/**/*.js\"",
+    "build": "parcel build src/index.html --public-url .",
     "compile:sass": "node-sass src/sass/main.scss src/css/style.css -w"
   },
   "repository": {
@@ -59,6 +59,7 @@
     ]
   },
   "dependencies": {
-    "axios": "^0.24.0"
+    "axios": "^0.24.0",
+    "codemirror": "^5.65.0"
   }
 }
