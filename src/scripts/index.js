@@ -1,14 +1,23 @@
 import createTag from "./utils/createTag.js";
 import httpMethods from "./utils/httpMethods.js";
+import makeRequestAsync from "../scripts/send/sendRequest";
 
 //Send request DOM API elements
 const divSend = createTag({ className: "send" });
 const selectSend = createTag({ tagName: "select", className: "send__methods" });
-const inputSend = createTag({ tagName: "input", className: "send__url" });
+const inputSend = createTag({
+  tagName: "input",
+  className: "send__url",
+  tagEvent: { name: "keyup", callback: handleEnterInInput },
+});
 const btnSend = createTag({
   tagName: "button",
   tagText: "SEND",
   className: "send__submit",
+  tagEvent: {
+    name: "click",
+    callback: handleSendRequest,
+  },
 });
 
 divSend.appendChild(selectSend);
@@ -19,7 +28,7 @@ httpMethods.map((method) => {
     createTag({
       tagName: "option",
       tagText: method,
-      tagAttrs: [{ key: "value", value: method.toLowerCase() }],
+      tagAttrs: [{ key: "value", value: method }],
     })
   );
 });
@@ -83,3 +92,22 @@ CodeMirror.fromTextArea(requestInfoBodyTextBox, {
 });
 
 document.body.appendChild(requestInfo);
+
+// Accepting request with the Enter key
+function handleEnterInInput(e) {
+  if (e.key === "Enter") {
+    handleSendRequest();
+  }
+}
+
+function handleSendRequest() {
+  makeRequestAsync(
+    inputSend.value,
+    selectSend.value,
+    requestInfoBodyTextBox.value
+  )
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((err) => console.log(err));
+}
