@@ -2,28 +2,33 @@
   #{&}__body {
     width: 100%;
     position: absolute;
-    left: 0;
+    left: 100%;
     padding: 0 px-to-rem(35);
   }
 
-  #{&}__body-text-box {
-    border-color: $border-color;
-    background-color: $primary-background-color;
-    outline: none;
-    color: $secondary-text-color;
-    width: 100%;
-    height: px-to-rem(162);
-    margin: px-to-rem(20) 0 0 0;
-    resize: none;
-    padding: px-to-rem(10);
+  #{&}__body-opened {
+    left: 0;
   }
+}
 
-  #{&}__body-text-box::-webkit-scrollbar {
-    width: px-to-rem(15);
-    outline: 1px solid $border-color;
-  }
+.CodeMirror {
+  border: $border-color solid 1px;
+  outline: none;
+  width: 100%;
+  margin: 0;
+  resize: none;
+  padding: px-to-rem(10);
+}
 
-  #{&}__body-text-box::-webkit-scrollbar-thumb {
-    background-color: $secondary-background-color;
-  }
+.cm-s-yonce.CodeMirror {
+  height: px-to-rem(165);
+}
+
+.CodeMirror-vscrollbar::-webkit-scrollbar {
+  width: px-to-rem(15);
+  outline: 1px solid $border-color;
+}
+
+.CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
+  background-color: $secondary-background-color;
 }
