@@ -23,7 +23,7 @@ const btnSend = createTag({
   className: "send__submit",
   tagEvent: {
     name: "click",
-    callback: handleSendRequest,
+    callback: handleSendAndDisplayRequest,
   },
 });
 
@@ -93,7 +93,7 @@ requestInfoBody.appendChild(requestInfoBodyForm);
 requestInfoBodyForm.appendChild(textareaLabel);
 requestInfoBodyForm.appendChild(requestInfoBodyTextBox);
 
-CodeMirror.fromTextArea(requestInfoBodyTextBox, {
+const bodyTextArea = CodeMirror.fromTextArea(requestInfoBodyTextBox, {
   lineNumbers: true,
   theme: "yonce",
   mode: 'application/json',
@@ -105,18 +105,18 @@ document.body.appendChild(requestInfo);
 // Accepting request with the Enter key
 function handleEnterInInput(e) {
   if (e.key === "Enter") {
-    handleSendRequest();
+    handleSendAndDisplayRequest();
   }
 }
 
-function handleSendRequest() {
+function handleSendAndDisplayRequest() {
   makeRequestAsync(
     inputSend.value,
     selectSend.value,
-    requestInfoBodyTextBox.value
+    JSON.parse(bodyTextArea.getValue())
   )
     .then((response) => {
-      console.log(response.data);
+      //TODO display `response` object in MIL-5_Response component
     })
     .catch((err) => console.log(err));
 }
