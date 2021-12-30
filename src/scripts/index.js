@@ -2,6 +2,12 @@ import createTag from "./utils/createTag.js";
 import httpMethods from "./utils/httpMethods.js";
 import makeRequestAsync from "../scripts/send/sendRequest";
 import CodeMirror from "codemirror";
+import "codemirror/lib/codemirror.css";
+import "codemirror/theme/yonce.css";
+import "codemirror/mode/javascript/javascript.js";
+import "codemirror/addon/lint/lint.js";
+import "codemirror/addon/lint/lint.css";
+import "codemirror/addon/lint/json-lint.js";
 
 //Send request DOM API elements
 const divSend = createTag({ className: "send" });
@@ -90,6 +96,8 @@ requestInfoBodyForm.appendChild(requestInfoBodyTextBox);
 CodeMirror.fromTextArea(requestInfoBodyTextBox, {
   lineNumbers: true,
   theme: "yonce",
+  mode: 'application/json',
+  lint: true,
 });
 
 document.body.appendChild(requestInfo);
