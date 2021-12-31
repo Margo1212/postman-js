@@ -120,6 +120,16 @@ const responseSecondaryTitle = createTag({
   className: "response__secondary-title",
   tagText: "Body",
 });
+const prettyButton = createTag({
+  tagName: "button",
+  className: "response__btn",
+  tagText: "Pretty",
+});
+const rawButton = createTag({
+  tagName: "button",
+  className: "response__btn",
+  tagText: "Raw",
+});
 
 const responseBody = createTag({ className: "response__body" });
 
@@ -134,6 +144,8 @@ const responseBodyRaw = createTag({
 
 responseSection.appendChild(responseMainTitle);
 responseSection.appendChild(responseSecondaryTitle);
+responseSection.appendChild(prettyButton);
+responseSection.appendChild(rawButton);
 responseSection.appendChild(responseBody);
 responseBody.appendChild(responseBodyPretty);
 responseBody.appendChild(responseBodyRaw);
