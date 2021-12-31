@@ -93,14 +93,57 @@ requestInfoBody.appendChild(requestInfoBodyForm);
 requestInfoBodyForm.appendChild(textareaLabel);
 requestInfoBodyForm.appendChild(requestInfoBodyTextBox);
 
-const bodyTextArea = CodeMirror.fromTextArea(requestInfoBodyTextBox, {
-  lineNumbers: true,
-  theme: "yonce",
-  mode: 'application/json',
-  lint: true,
-});
+const requestInfoBodyTextArea = CodeMirror.fromTextArea(
+  requestInfoBodyTextBox,
+  {
+    lineNumbers: true,
+    theme: "yonce",
+    mode: "application/json",
+    lint: true,
+  }
+);
 
 document.body.appendChild(requestInfo);
+
+//Response DOM API elements
+const responseSection = createTag({
+  tagName: "section",
+  className: "response",
+});
+const responseMainTitle = createTag({
+  tagName: "h2",
+  className: "response__main-title",
+  tagText: "Response",
+});
+const responseSecondaryTitle = createTag({
+  tagName: "p",
+  className: "response__secondary-title",
+  tagText: "Body",
+});
+
+const responseBody = createTag({ className: "response__body" });
+
+const responseBodyPretty = createTag({
+  tagName: "textarea",
+  className: "response__body-pretty-text-box",
+});
+const responseBodyRaw = createTag({
+  tagName: "textarea",
+  className: "response__body-raw-text-box",
+});
+
+responseSection.appendChild(responseMainTitle);
+responseSection.appendChild(responseSecondaryTitle);
+responseSection.appendChild(responseBody);
+responseBody.appendChild(responseBodyPretty);
+responseBody.appendChild(responseBodyRaw);
+
+const responseBodyTextArea = CodeMirror.fromTextArea(responseBodyPretty, {
+  lineNumbers: true,
+  theme: "yonce",
+  mode: "application/json",
+  lint: true,
+});
 
 // Accepting request with the Enter key
 function handleEnterInInput(e) {
@@ -109,14 +152,24 @@ function handleEnterInInput(e) {
   }
 }
 
+function requestBody() {
+  let requestBody;
+  try {
+    requestBody = JSON.parse(requestInfoBodyTextArea.getValue());
+  } catch (error) {
+    requestBody = null;
+  }
+  return requestBody;
+}
+
 function handleSendAndDisplayRequest() {
-  makeRequestAsync(
-    inputSend.value,
-    selectSend.value,
-    JSON.parse(bodyTextArea.getValue())
-  )
+  makeRequestAsync(inputSend.value, selectSend.value, requestBody())
     .then((response) => {
-      //TODO display `response` object in MIL-5_Response component
+      responseBodyTextArea.setValue(JSON.stringify(response.data, null, 2));
+      responseBodyRaw.innerText = JSON.stringify(response.data);
     })
-    .catch((err) => console.log(err));
+    .catch(() => {
+      responseBodyTextArea.setValue("Request could not be executed");
+      responseBodyRaw.innerText = "Request could not be executed";
+    });
 }

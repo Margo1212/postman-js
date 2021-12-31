@@ -29,3 +29,21 @@ body {
     margin: px-to-rem(15) 0;
   }
 }
+
+.response {
+  grid-area: response;
+  padding: 0 2.1875rem;
+  position: relative;
+  #{&}__main-title {
+    color: $primary-text-color;
+    font-weight: 500;
+    font-size: px-to-rem(24);
+    margin: px-to-rem(15) 0;
+  }
+  #{&}__secondary-title {
+    color: $secondary-text-color;
+    font-weight: 100;
+    font-size: px-to-rem(18);
+    margin: px-to-rem(15) 0;
+  }
+}
