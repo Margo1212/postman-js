@@ -20,7 +20,6 @@ body {
   display: grid;
   grid-template-columns: 200px 1fr;
 
-
   #{&}__container {
     border: $border-color solid 1px;
     display: flex;

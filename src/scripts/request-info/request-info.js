@@ -1,15 +1,20 @@
-const openTab = () => {
-    const headerBtn = document.querySelector(".request-info__btn:first-of-type");
-    const bodyBtn = document.querySelector(".request-info__btn:nth-of-type(2)");
-    const bodyElement = document.querySelector(".request-info__body");
+const openTab = ({
+  elementSelector,
+  firstBtnSelector,
+  secondBtnSelector,
+  newClass,
+}) => {
+  const firstBtn = document.querySelector(firstBtnSelector);
+  const secondBtn = document.querySelector(secondBtnSelector);
+  const chosenElement = document.querySelector(elementSelector);
 
-    bodyBtn.addEventListener("click", () => {
-        bodyElement.classList.add("request-info__body-opened");
-    });
+  secondBtn.addEventListener("click", () => {
+    chosenElement.classList.add(newClass);
+  });
 
-    headerBtn.addEventListener("click", () => {
-        bodyElement.classList.remove("request-info__body-opened");
-    });
+  firstBtn.addEventListener("click", () => {
+    chosenElement.classList.remove(newClass);
+  });
 };
 
 export default openTab;

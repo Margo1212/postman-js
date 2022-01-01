@@ -2,7 +2,6 @@ import createTag from "./utils/createTag.js";
 import httpMethods from "./utils/httpMethods.js";
 import openTab from "./request-info/request-info";
 
-
 //Send request DOM API elements
 const divSend = createTag({ className: "send" });
 const selectSend = createTag({ tagName: "select", className: "send__methods" });
@@ -86,4 +85,9 @@ CodeMirror.fromTextArea(requestInfoBodyTextBox, {
 
 document.body.appendChild(requestInfo);
 
-openTab();
+openTab({
+  newClass: "request-info__body-opened",
+  firstBtnSelector: ".request-info__btn:first-of-type",
+  secondBtnSelector: ".request-info__btn:nth-of-type(2)",
+  elementSelector: ".request-info__body",
+});
