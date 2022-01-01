@@ -136,6 +136,7 @@ let responseStatus = createTag({
 });
 
 const responseBody = createTag({ className: "response__body" });
+const responseRaw = createTag({ className: "response__raw" });
 
 const responseBodyPretty = createTag({
   tagName: "textarea",
@@ -152,8 +153,9 @@ responseSection.appendChild(prettyButton);
 responseSection.appendChild(rawButton);
 responseSection.appendChild(responseStatus);
 responseSection.appendChild(responseBody);
+responseSection.appendChild(responseRaw);
 responseBody.appendChild(responseBodyPretty);
-responseBody.appendChild(responseBodyRaw);
+responseRaw.appendChild(responseBodyRaw);
 
 const responseBodyTextArea = CodeMirror.fromTextArea(responseBodyPretty, {
   lineNumbers: true,
@@ -170,10 +172,10 @@ function handleEnterInInput(e) {
   }
 }
 
-function requestBody() {
+export function setRequestBody(requestInfoBody) {
   let requestBody;
   try {
-    requestBody = JSON.parse(requestInfoBodyTextArea.getValue());
+    requestBody = JSON.parse(requestInfoBody.getValue());
   } catch (error) {
     requestBody = null;
   }
@@ -181,13 +183,14 @@ function requestBody() {
 }
 
 function handleSendAndDisplayRequest() {
-  makeRequestAsync(inputSend.value, selectSend.value, requestBody())
+  makeRequestAsync(inputSend.value, selectSend.value, setRequestBody(requestInfoBodyTextArea))
     .then((response) => {
       responseBodyTextArea.setValue(JSON.stringify(response.data, null, 2));
       responseBodyRaw.innerText = JSON.stringify(response.data);
-      responseStatus.innerText = `Response status: ${response.status}`
+      responseStatus.innerText = `Response status: ${response.status}`;
     })
     .catch(() => {
+      responseStatus.innerText = "";
       responseBodyTextArea.setValue("Request could not be executed");
       responseBodyRaw.innerText = "Request could not be executed";
     });
