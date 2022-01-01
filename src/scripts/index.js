@@ -172,10 +172,10 @@ function handleEnterInInput(e) {
   }
 }
 
-export function setRequestBody(requestInfoBody) {
+export function setRequestBody() {
   let requestBody;
   try {
-    requestBody = JSON.parse(requestInfoBody.getValue());
+    requestBody = JSON.parse(requestInfoBodyTextArea.getValue());
   } catch (error) {
     requestBody = null;
   }
@@ -183,11 +183,18 @@ export function setRequestBody(requestInfoBody) {
 }
 
 function handleSendAndDisplayRequest() {
-  makeRequestAsync(inputSend.value, selectSend.value, setRequestBody(requestInfoBodyTextArea))
+  makeRequestAsync(inputSend.value, selectSend.value, setRequestBody())
     .then((response) => {
-      responseBodyTextArea.setValue(JSON.stringify(response.data, null, 2));
-      responseBodyRaw.innerText = JSON.stringify(response.data);
       responseStatus.innerText = `Response status: ${response.status}`;
+      if (selectSend.value === "HEAD") {
+        responseBodyTextArea.setValue(
+          JSON.stringify(response.headers, null, 2)
+        );
+        responseBodyRaw.innerText = JSON.stringify(response.headers);
+      } else {
+        responseBodyTextArea.setValue(JSON.stringify(response.data, null, 2));
+        responseBodyRaw.innerText = JSON.stringify(response.data);
+      }
     })
     .catch(() => {
       responseStatus.innerText = "";
