@@ -439,3 +439,17 @@ body {
 .request-info .request-info__btn:focus {
   background: linear-gradient(0deg, #ff6c37 7%, #212121 7%);
 }
+
+.row {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.headers-markup {
+  position: absolute;
+  top: 300px;
+}
+.list-container {
+  list-style: none;
+  background-color: #555555;
+}

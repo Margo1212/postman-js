@@ -7,6 +7,9 @@ import "codemirror/mode/javascript/javascript.js";
 import "codemirror/addon/lint/lint.js";
 import "codemirror/addon/lint/lint.css";
 import "codemirror/addon/lint/json-lint.js";
+import httpHeaders from "./utils/headers/httpHeaders";
+import {handleKeyUp, selectItem} from "./utils/headers/autompleteHeaders";
+import addHeader from "./headers/addHeader";
 
 //Send request DOM API elements
 const divSend = createTag({ className: "send" });
@@ -92,3 +95,6 @@ CodeMirror.fromTextArea(requestInfoBodyTextBox, {
 });
 
 document.body.appendChild(requestInfo);
+
+// -->
+addHeader();
