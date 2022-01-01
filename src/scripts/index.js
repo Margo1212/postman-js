@@ -130,6 +130,10 @@ const rawButton = createTag({
   className: "response__btn",
   tagText: "Raw",
 });
+let responseStatus = createTag({
+  tagName: "p",
+  className: "response__status",
+});
 
 const responseBody = createTag({ className: "response__body" });
 
@@ -146,6 +150,7 @@ responseSection.appendChild(responseMainTitle);
 responseSection.appendChild(responseSecondaryTitle);
 responseSection.appendChild(prettyButton);
 responseSection.appendChild(rawButton);
+responseSection.appendChild(responseStatus);
 responseSection.appendChild(responseBody);
 responseBody.appendChild(responseBodyPretty);
 responseBody.appendChild(responseBodyRaw);
@@ -179,6 +184,7 @@ function handleSendAndDisplayRequest() {
     .then((response) => {
       responseBodyTextArea.setValue(JSON.stringify(response.data, null, 2));
       responseBodyRaw.innerText = JSON.stringify(response.data);
+      responseStatus.innerText = `Response status: ${response.status}`
     })
     .catch(() => {
       responseBodyTextArea.setValue("Request could not be executed");
