@@ -160,6 +160,7 @@ const responseBodyTextArea = CodeMirror.fromTextArea(responseBodyPretty, {
   theme: "yonce",
   mode: "application/json",
   lint: true,
+  lineWrapping: true,
 });
 
 // Accepting request with the Enter key
