@@ -1,6 +1,7 @@
 import createTag from "./utils/createTag.js";
 import httpMethods from "./utils/httpMethods.js";
 import makeRequestAsync from "../scripts/send/sendRequest";
+import promiseResolved from "./send/promiseResolved.js";
 import CodeMirror from "codemirror";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/yonce.css";
@@ -138,7 +139,7 @@ let responseStatus = createTag({
 const responseBody = createTag({ className: "response__body" });
 const responseRaw = createTag({ className: "response__raw" });
 
-const responseBodyPretty = createTag({
+const responseBodyPrettyTextArea = createTag({
   tagName: "textarea",
   className: "response__body-pretty-text-box",
 });
@@ -154,10 +155,10 @@ responseSection.appendChild(rawButton);
 responseSection.appendChild(responseStatus);
 responseSection.appendChild(responseBody);
 responseSection.appendChild(responseRaw);
-responseBody.appendChild(responseBodyPretty);
+responseBody.appendChild(responseBodyPrettyTextArea);
 responseRaw.appendChild(responseBodyRaw);
 
-const responseBodyTextArea = CodeMirror.fromTextArea(responseBodyPretty, {
+const responseBodyPretty = CodeMirror.fromTextArea(responseBodyPrettyTextArea, {
   lineNumbers: true,
   theme: "yonce",
   mode: "application/json",
@@ -184,21 +185,18 @@ export function setRequestBody() {
 
 function handleSendAndDisplayRequest() {
   makeRequestAsync(inputSend.value, selectSend.value, setRequestBody())
-    .then((response) => {
-      responseStatus.innerText = `Response status: ${response.status}`;
-      if (selectSend.value === "HEAD") {
-        responseBodyTextArea.setValue(
-          JSON.stringify(response.headers, null, 2)
-        );
-        responseBodyRaw.innerText = JSON.stringify(response.headers);
-      } else {
-        responseBodyTextArea.setValue(JSON.stringify(response.data, null, 2));
-        responseBodyRaw.innerText = JSON.stringify(response.data);
-      }
-    })
+    .then((response) =>
+      promiseResolved(
+        response,
+        selectSend.value,
+        responseStatus,
+        responseBodyPretty,
+        responseBodyRaw
+      )
+    )
     .catch(() => {
       responseStatus.innerText = "";
-      responseBodyTextArea.setValue("Request could not be executed");
+      responseBodyPretty.setValue("Request could not be executed");
       responseBodyRaw.innerText = "Request could not be executed";
     });
 }
