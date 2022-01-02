@@ -1,10 +1,10 @@
 import httpHeaders from "./httpHeaders";
 
 export function handleKeyUp(event, suggestion) {
-    let searchvalue = event.target.value;
+    let searchValue = event.target.value;
     suggestion.innerHTML =``;
-    if(searchvalue.length) {
-        let autoCompleteValue = autoComplete(searchvalue, httpHeaders);
+    if(searchValue.length) {
+        let autoCompleteValue = autoComplete(searchValue, httpHeaders);
         autoCompleteValue.forEach(value => {addItem(value, suggestion)})
     }
 }
