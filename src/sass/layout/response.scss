@@ -1,0 +1,8 @@
+.response {
+  #{&}__body {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    padding: 0 px-to-rem(35);
+  }
+}

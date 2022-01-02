@@ -1,5 +1,6 @@
 import createTag from "./utils/createTag.js";
 import httpMethods from "./utils/httpMethods.js";
+import makeRequestAsync from "../scripts/send/sendRequest";
 import CodeMirror from "codemirror";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/yonce.css";
@@ -8,17 +9,25 @@ import "codemirror/addon/lint/lint.js";
 import "codemirror/addon/lint/lint.css";
 import "codemirror/addon/lint/json-lint.js";
 import httpHeaders from "./utils/headers/httpHeaders";
-import {handleKeyUp, selectItem} from "./utils/headers/autompleteHeaders";
+import { handleKeyUp, selectItem } from "./utils/headers/autompleteHeaders";
 import addHeader from "./headers/addHeader";
 
 //Send request DOM API elements
 const divSend = createTag({ className: "send" });
 const selectSend = createTag({ tagName: "select", className: "send__methods" });
-const inputSend = createTag({ tagName: "input", className: "send__url" });
+const inputSend = createTag({
+  tagName: "input",
+  className: "send__url",
+  tagEvent: { name: "keyup", callback: handleEnterInInput },
+});
 const btnSend = createTag({
   tagName: "button",
   tagText: "SEND",
   className: "send__submit",
+  tagEvent: {
+    name: "click",
+    callback: handleSendAndDisplayRequest,
+  },
 });
 
 divSend.appendChild(selectSend);
@@ -29,7 +38,7 @@ httpMethods.map((method) => {
     createTag({
       tagName: "option",
       tagText: method,
-      tagAttrs: [{ key: "value", value: method.toLowerCase() }],
+      tagAttrs: [{ key: "value", value: method }],
     })
   );
 });
@@ -87,14 +96,116 @@ requestInfoBody.appendChild(requestInfoBodyForm);
 requestInfoBodyForm.appendChild(textareaLabel);
 requestInfoBodyForm.appendChild(requestInfoBodyTextBox);
 
-CodeMirror.fromTextArea(requestInfoBodyTextBox, {
+const requestInfoBodyTextArea = CodeMirror.fromTextArea(
+  requestInfoBodyTextBox,
+  {
+    lineNumbers: true,
+    theme: "yonce",
+    mode: "application/json",
+    lint: true,
+  }
+);
+
+document.body.appendChild(requestInfo);
+
+//Response DOM API elements
+const responseSection = createTag({
+  tagName: "section",
+  className: "response",
+});
+const responseMainTitle = createTag({
+  tagName: "h2",
+  className: "response__main-title",
+  tagText: "Response",
+});
+const responseSecondaryTitle = createTag({
+  tagName: "p",
+  className: "response__secondary-title",
+  tagText: "Body",
+});
+const prettyButton = createTag({
+  tagName: "button",
+  className: "response__btn",
+  tagText: "Pretty",
+});
+const rawButton = createTag({
+  tagName: "button",
+  className: "response__btn",
+  tagText: "Raw",
+});
+let responseStatus = createTag({
+  tagName: "p",
+  className: "response__status",
+});
+
+const responseBody = createTag({ className: "response__body" });
+const responseRaw = createTag({ className: "response__raw" });
+
+const responseBodyPretty = createTag({
+  tagName: "textarea",
+  className: "response__body-pretty-text-box",
+});
+const responseBodyRaw = createTag({
+  tagName: "textarea",
+  className: "response__body-raw-text-box",
+});
+
+responseSection.appendChild(responseMainTitle);
+responseSection.appendChild(responseSecondaryTitle);
+responseSection.appendChild(prettyButton);
+responseSection.appendChild(rawButton);
+responseSection.appendChild(responseStatus);
+responseSection.appendChild(responseBody);
+responseSection.appendChild(responseRaw);
+responseBody.appendChild(responseBodyPretty);
+responseRaw.appendChild(responseBodyRaw);
+
+const responseBodyTextArea = CodeMirror.fromTextArea(responseBodyPretty, {
   lineNumbers: true,
   theme: "yonce",
-  mode: 'application/json',
+  mode: "application/json",
   lint: true,
+  lineWrapping: true,
 });
 
 document.body.appendChild(requestInfo);
 
 // -->
 addHeader();
+// Accepting request with the Enter key
+function handleEnterInInput(e) {
+  if (e.key === "Enter") {
+    handleSendAndDisplayRequest();
+  }
+}
+
+export function setRequestBody() {
+  let requestBody;
+  try {
+    requestBody = JSON.parse(requestInfoBodyTextArea.getValue());
+  } catch (error) {
+    requestBody = null;
+  }
+  return requestBody;
+}
+
+function handleSendAndDisplayRequest() {
+  makeRequestAsync(inputSend.value, selectSend.value, setRequestBody())
+    .then((response) => {
+      responseStatus.innerText = `Response status: ${response.status}`;
+      if (selectSend.value === "HEAD") {
+        responseBodyTextArea.setValue(
+          JSON.stringify(response.headers, null, 2)
+        );
+        responseBodyRaw.innerText = JSON.stringify(response.headers);
+      } else {
+        responseBodyTextArea.setValue(JSON.stringify(response.data, null, 2));
+        responseBodyRaw.innerText = JSON.stringify(response.data);
+      }
+    })
+    .catch(() => {
+      responseStatus.innerText = "";
+      responseBodyTextArea.setValue("Request could not be executed");
+      responseBodyRaw.innerText = "Request could not be executed";
+    });
+}
