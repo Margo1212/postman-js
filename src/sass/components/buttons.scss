@@ -16,3 +16,29 @@
     background: linear-gradient(0deg, rgb(255, 108, 55) 7%, rgb(33, 33, 33) 7%);
   }
 }
+
+.response {
+  #{&}__btn {
+    border: $primary-text-color solid 1px;
+    color: $primary-text-color;
+    font-size: px-to-rem(14);
+    padding: px-to-rem(5) px-to-rem(25);
+    border-radius: px-to-rem(8);
+    cursor: pointer;
+    background-color: $primary-background-color;
+  }
+
+  #{&}__btn:hover {
+    border: $secondary-text-color solid 1px;
+    color: $secondary-text-color;
+  }
+
+  #{&}__btn:focus {
+    border: $primary-highlight-color solid 1px;
+    color: $primary-highlight-color;
+  }
+
+  #{&}__btn:last-of-type {
+    margin: 0 px-to-rem(15);
+  }
+}
