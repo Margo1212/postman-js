@@ -14,47 +14,46 @@
     <script src="scripts/index.js" async defer type="module"></script>
   </head>
   <body>
-  <section class="request-info">
-    <h2 class="request-info__main-title">Request information</h2>
-    <button class="request-info__btn">Headers</button>
-    <button class="request-info__btn">Body</button>
+    <section class="request-info">
+      <h2 class="request-info__main-title">Request information</h2>
+      <button class="request-info__btn">Headers</button>
+      <button class="request-info__btn">Body</button>
 
-    <div class="request-info__headers">
-      <div class="request-info__item"></div>
-      <div class="request-info__item request-info__item--th">Key</div>
-      <div class="request-info__item request-info__item--th">Value</div>
-      <div class="request-info__item"></div>
-      <div class="request-info__item"></div>
-      <div class="request-info__item">
-        <input class="request-info__input" type="text" placeholder="Key" />
+      <div class="request-info__headers">
+        <div class="request-info__item"></div>
+        <div class="request-info__item request-info__item--th">Key</div>
+        <div class="request-info__item request-info__item--th">Value</div>
+        <div class="request-info__item"></div>
+        <div class="request-info__item"></div>
+        <div class="request-info__item">
+          <input class="request-info__input" type="text" placeholder="Key" />
+        </div>
+        <div class="request-info__item">
+          <input class="request-info__input" type="text" placeholder="Value" />
+        </div>
+        <div class="request-info__item"></div>
       </div>
-      <div class="request-info__item">
-        <input class="request-info__input" type="text" placeholder="Value" />
-      </div>
-      <div class="request-info__item"></div>
-    </div>
 
-    <div class="request-info__body">
-      <form method="" action="" class="request-info__body-form">
-        <label for="textarea"></label>
-        <textarea
-                id="textarea"
-                class="request-info__body-text-box"
-        ></textarea>
-      </form>
-    </div>
-  </section>
-  <section class="headers-markup">
-    <div id="headers" >
-      <div class="row">
-        <input type="text" placeholder="key"  id="first__input"/>
-        <input type="text" placeholder="value" />
+      <div class="request-info__body">
+        <form method="" action="" class="request-info__body-form">
+          <label for="textarea"></label>
+          <textarea
+            id="textarea"
+            class="request-info__body-text-box"
+          ></textarea>
+        </form>
       </div>
-    </div>
-    <ul class="list-container" id ="list-container" style="color:white"></ul>
-    <button id="btn" >add row</button>
-<!--    <button id="btn-form" >get form content</button>-->
-  </section>
-
+    </section>
+    <section class="headers-markup">
+      <div id="headers">
+        <div class="row">
+          <input type="text" placeholder="key" id="first__input" />
+          <input type="text" placeholder="value" />
+        </div>
+      </div>
+      <ul class="list-container" id="list-container" style="color: white"></ul>
+      <button id="btn">add row</button>
+      <!--    <button id="btn-form" >get form content</button>-->
+    </section>
   </body>
 </html>

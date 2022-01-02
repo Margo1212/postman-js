@@ -451,15 +451,15 @@ body {
 }
 .list-container {
   list-style: none;
-  background-color: #2B2B2B;
+  background-color: #2b2b2b;
   padding: 0;
 }
-.list-container li{
+.list-container li {
   border: #303030 1px solid;
   min-height: 25px;
   border-radius: 3px;
-  background-color: #2B2B2B;
-  color: #A6A6A6;
+  background-color: #2b2b2b;
+  color: #a6a6a6;
   padding-top: 4px;
   padding-left: 20px;
 }
