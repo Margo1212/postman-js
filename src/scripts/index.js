@@ -10,6 +10,43 @@ import "codemirror/addon/lint/lint.js";
 import "codemirror/addon/lint/lint.css";
 import "codemirror/addon/lint/json-lint.js";
 
+//Header DOM API elements
+const headerSection = createTag({
+  tagName: "header",
+  className: "header",
+});
+
+const headerContainerLogo = createTag({
+  tagName: "div",
+  className: "header__container",
+});
+
+const headerContainerHistory = createTag({
+  tagName: "div",
+  className: "header__container",
+});
+
+const headerLogoTitle = createTag({
+  tagName: "h2",
+  className: "header__title",
+  tagText: "Postman-js",
+});
+
+const headerLogoIcon = createTag({
+  tagName: "i",
+  className: ["header__icon", "fas", "fa-rocket"],
+});
+
+const headerHistoryIcon = createTag({
+  tagName: "i",
+  className: ["header__icon", "header__icon--history", "fas", "fa-history"],
+});
+
+const headerHistoryBtn = createTag({
+  tagName: "button",
+  className: "header__btn",
+});
+
 //Send request DOM API elements
 const divSend = createTag({ className: "send" });
 const selectSend = createTag({ tagName: "select", className: "send__methods" });
@@ -75,6 +112,12 @@ const requestInfoBodyTextBox = createTag({
   tagId: "textarea",
 });
 
+//Header section
+headerSection.append(headerContainerLogo, headerContainerHistory);
+headerContainerLogo.append(headerLogoTitle, headerLogoIcon);
+headerContainerHistory.appendChild(headerHistoryBtn);
+headerHistoryBtn.appendChild(headerHistoryIcon);
+
 //Headers and Body section structure
 requestInfo.appendChild(requestInfoMainTitle);
 requestInfo.appendChild(headersButton);
@@ -89,8 +132,9 @@ requestInfoBodyForm.appendChild(requestInfoBodyTextBox);
 CodeMirror.fromTextArea(requestInfoBodyTextBox, {
   lineNumbers: true,
   theme: "yonce",
-  mode: 'application/json',
+  mode: "application/json",
   lint: true,
+  lineWrapping: true,
 });
 
 document.body.appendChild(requestInfo);
@@ -100,4 +144,11 @@ openTab({
   firstBtnSelector: ".request-info__btn:first-of-type",
   secondBtnSelector: ".request-info__btn:nth-of-type(2)",
   elementSelector: ".request-info__body",
+});
+
+openTab({
+  newClass: "response__raw-opened",
+  firstBtnSelector: ".response__btn:first-of-type",
+  secondBtnSelector: ".response__btn:nth-of-type(2)",
+  elementSelector: ".response__raw",
 });
