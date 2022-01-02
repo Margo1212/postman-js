@@ -3,7 +3,7 @@ import {handleKeyUp, selectItem} from "../utils/headers/autompleteHeaders";
 const addHeaders=()=> {
     let rowCounter=0;
     const form = document.getElementById('headers');
-    const parentDiv = form.children;
+    // const parentDiv = form.children;
     const btn =document.getElementById('btn');
     // const btnForm =document.getElementById('btn-form');
     const suggestion = document.getElementById('list-container');
@@ -11,7 +11,7 @@ const addHeaders=()=> {
     const inp  = document.getElementById('first__input');
     let selectedInput;
     let inpst = inp;
-    const Headers =[];
+    // const Headers =[];
 
     btn.addEventListener('click',()=> {
         const newDiv = document.createElement('div');
@@ -42,10 +42,10 @@ const addHeaders=()=> {
     // })
 
     // this function return an object which will be pass to makeRequestAsync as an argument
-    function generateObjHeader(array){
-        const obj = Object.fromEntries(array);
-        console.log(obj)
-    }
+    // function generateObjHeader(array){
+    //     const obj = Object.fromEntries(array);
+    //     console.log(obj)
+    // }
 
     suggestion.addEventListener('click',(event)=>{selectItem(event,inpst, suggestion)})
 
