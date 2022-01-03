@@ -10,6 +10,7 @@ import "codemirror/addon/lint/lint.js";
 import "codemirror/addon/lint/lint.css";
 import "codemirror/addon/lint/json-lint.js";
 import addHeader from "./headers/addHeader";
+import openTab from "./utils/openTab.js";
 
 //Header DOM API elements
 const headerSection = createTag({
@@ -225,8 +226,7 @@ openTab({
   secondBtnSelector: ".response__btn:nth-of-type(2)",
   elementSelector: ".response__raw",
 });
-=======
-// -->
+
 addHeader();
 // Accepting request with the Enter key
 function handleEnterInInput(e) {
