@@ -350,6 +350,7 @@ body {
   overflow: hidden;
   border: #cdcdcd solid 1px;
   z-index: 1; }
+
   .request-info .request-info__main-title {
     color: white;
     font-weight: 500;
@@ -505,3 +506,27 @@ body {
 
 .response .response__status {
   color: #26e07d; }
+.send {
+  display: grid;
+  grid-template-columns: 1fr 14fr 1fr; }
+  .send .send__submit {
+    background-color: #1e61d9;
+    color: white;
+    border-color: #1e61d9;
+    border-radius: 5px;
+    margin: 10px 0 10px 0;
+    cursor: pointer; }
+  .send .send__url {
+    background-color: #212121;
+    border-radius: 0 5px 5px 0;
+    margin: 10px 10px 10px 0;
+    border-color: white;
+    color: white;
+    padding: 10px; }
+  .send .send__methods {
+    background-color: #212121;
+    border-color: white;
+    color: white;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    margin: 10px 0px 10px 0px; }
