@@ -313,7 +313,7 @@ body {
   font-size: 16px;
   display: grid;
   grid-template-rows: auto auto 18.125rem 31.25rem;
-  grid-template-areas: "header" "name" "request-info" "response"; }
+  grid-template-areas: "header", "name", "request-info", "response"; }
 
 .header {
   grid-area: header;
@@ -422,7 +422,8 @@ body {
   padding: 0 2.1875rem; }
 
 .request-info .request-info__body-opened {
-  left: 0; }
+  left: 0;
+}
 
 .CodeMirror {
   border: #cdcdcd solid 1px;

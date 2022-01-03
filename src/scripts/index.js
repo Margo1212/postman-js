@@ -1,8 +1,11 @@
 import createTag from "./utils/createTag.js";
 import httpMethods from "./utils/httpMethods.js";
+import openTab from "./request-info/request-info";
 import makeRequestAsync from "../scripts/send/sendRequest";
 import promiseResolved from "./send/promiseResolved.js";
+import addHeader from "./headers/addHeader";
 import CodeMirror from "codemirror";
+
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/yonce.css";
 import "codemirror/mode/javascript/javascript.js";
