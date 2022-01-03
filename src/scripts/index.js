@@ -152,6 +152,64 @@ const requestInfoBodyTextArea = CodeMirror.fromTextArea(
 
 document.body.appendChild(requestInfo);
 
+//Headers tags
+const headersMarkup = createTag({
+  tagName: "section",
+  className: "headers-markup",
+});
+const headers = createTag({ tagId: "headers", className: "headers" });
+const headerKey = createTag({ className: "header-key", tagText: "Key" });
+const headerValue = createTag({ className: "header-value", tagText: "Value" });
+const row = createTag({ className: "row" });
+const key = createTag({
+  tagName: "input",
+  className: "row-input",
+  tagAttrs: [
+    { key: "type", value: "text" },
+    { key: "placeholder", value: "key" },
+  ],
+  tagId: "first__input",
+});
+const value = createTag({
+  tagName: "input",
+  className: "row-input",
+  tagAttrs: [
+    { key: "type", value: "text" },
+    { key: "placeholder", value: "value" },
+  ],
+});
+const listContainer = createTag({
+  tagName: "ul",
+  className: "list-container",
+  tagId: "list-container",
+  tagAttrs: [{ key: "style", value: "color:white" }],
+});
+const addRowButton = createTag({
+  tagName: "button",
+  className: "btn",
+  tagId: "btn",
+  tagText: "add row",
+});
+const addRowButtonForm = createTag({
+  tagName: "button",
+  className: "btn",
+  tagId: "btn-form",
+  tagText: "get form content",
+});
+
+//Headers structure
+headersMarkup.appendChild(headers);
+headers.appendChild(headerKey);
+headers.appendChild(headerValue);
+headers.appendChild(row);
+row.appendChild(key);
+row.appendChild(value);
+headersMarkup.appendChild(listContainer);
+headersMarkup.appendChild(addRowButton);
+headersMarkup.appendChild(addRowButtonForm);
+
+document.body.appendChild(headersMarkup);
+
 //Response DOM API elements
 const responseSection = createTag({
   tagName: "section",
