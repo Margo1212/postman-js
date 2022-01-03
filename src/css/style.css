@@ -328,6 +328,8 @@ body {
     color: white;
     font-weight: 500;
     font-size: 1.125rem; }
+  grid-template-areas: "header" "name" "request-info" "response";
+}
 
 .request-info {
   grid-area: request-info;
@@ -340,6 +342,24 @@ body {
     font-weight: 500;
     font-size: 1.5rem;
     margin: 0.625rem 0; }
+
+.response {
+  grid-area: response;
+  padding: 0 2.1875rem;
+  position: relative;
+}
+.response .response__main-title {
+  color: white;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0.9375rem 0;
+}
+.response .response__secondary-title {
+  color: #959595;
+  font-weight: 100;
+  font-size: 1.125rem;
+  margin: 0.9375rem 0;
+}
 
 .request-info .request-info__headers {
   display: grid;
@@ -403,3 +423,65 @@ body {
 
 .request-info .request-info__btn:focus {
   background: linear-gradient(0deg, #ff6c37 7%, #212121 7%); }
+  background: linear-gradient(0deg, #ff6c37 7%, #212121 7%);
+}
+
+.response .response__body {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  padding: 0 2.1875rem;
+}
+
+.send {
+  display: grid;
+  grid-template-columns: 1fr 14fr 1fr;
+}
+.send .send__submit {
+  background-color: #1e61d9;
+  color: white;
+  border-color: #1e61d9;
+  border-radius: 5px;
+  margin: 10px 0 10px 0;
+  cursor: pointer;
+}
+.send .send__url {
+  background-color: #212121;
+  border-radius: 0 5px 5px 0;
+  margin: 10px 10px 10px 0;
+  border-color: white;
+  color: white;
+  padding: 10px;
+}
+.send .send__methods {
+  background-color: #212121;
+  border-color: white;
+  color: white;
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  margin: 10px 0px 10px 0px;
+}
+
+.row {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.headers-markup {
+  position: absolute;
+  top: 800px;
+}
+.list-container {
+  list-style: none;
+  background-color: #2b2b2b;
+  padding: 0;
+}
+.list-container li {
+  border: #303030 1px solid;
+  min-height: 25px;
+  border-radius: 3px;
+  background-color: #2b2b2b;
+  color: #a6a6a6;
+  padding-top: 4px;
+  padding-left: 20px;
+}
