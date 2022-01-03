@@ -1,5 +1,6 @@
 .send {
   display: grid;
+  grid-area: name;
   grid-template-columns: 1fr 14fr 1fr;
 
   #{&}__submit {

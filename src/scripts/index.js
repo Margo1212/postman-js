@@ -2,7 +2,7 @@ import createTag from "./utils/createTag.js";
 import httpMethods from "./utils/httpMethods.js";
 import makeRequestAsync from "../scripts/send/sendRequest";
 import promiseResolved from "./send/promiseResolved.js";
-import addHeader from "./headers/addHeader";
+import addHeaders from "./headers/addHeader";
 import CodeMirror from "codemirror";
 
 import "codemirror/lib/codemirror.css";
@@ -228,7 +228,7 @@ openTab({
   elementSelector: ".response__raw",
 });
 
-addHeader();
+const getHeaders = addHeaders();
 // Accepting request with the Enter key
 function handleEnterInInput(e) {
   if (e.key === "Enter") {
@@ -247,7 +247,7 @@ export function setRequestBody() {
 }
 
 function handleSendAndDisplayRequest() {
-  makeRequestAsync(inputSend.value, selectSend.value, setRequestBody())
+  makeRequestAsync(inputSend.value, selectSend.value, setRequestBody(), getHeaders())
     .then((response) =>
       promiseResolved(
         response,
