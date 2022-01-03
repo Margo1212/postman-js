@@ -1,6 +1,5 @@
 import createTag from "./utils/createTag.js";
 import httpMethods from "./utils/httpMethods.js";
-import openTab from "./request-info/request-info";
 import makeRequestAsync from "../scripts/send/sendRequest";
 import promiseResolved from "./send/promiseResolved.js";
 import addHeader from "./headers/addHeader";
@@ -12,7 +11,6 @@ import "codemirror/mode/javascript/javascript.js";
 import "codemirror/addon/lint/lint.js";
 import "codemirror/addon/lint/lint.css";
 import "codemirror/addon/lint/json-lint.js";
-import addHeader from "./headers/addHeader";
 import openTab from "./utils/openTab.js";
 
 //Header DOM API elements
