@@ -7,7 +7,7 @@ body {
   font-family: $base-font-family;
   font-size: #{$base-font-size}px;
   display: grid;
-  grid-template-rows: auto auto px-to-rem(290) 1fr;
+  grid-template-rows: auto auto px-to-rem(290) px-to-rem(500);
   grid-template-areas:
     "header"
     "name"
@@ -18,20 +18,43 @@ body {
 .header {
   grid-area: header;
   display: grid;
-  grid-template-columns: 200px 1fr;
-
+  grid-template-columns: px-to-rem(200) 1fr;
 
   #{&}__container {
     border: $border-color solid 1px;
     display: flex;
     align-items: center;
+  }
+
+  #{&}__container:first-of-type {
     justify-content: center;
+  }
+
+  #{&}__container:last-of-type {
+    justify-content: end;
   }
 
   #{&}__title {
     color: $primary-text-color;
     font-weight: 500;
     font-size: px-to-rem(18);
+  }
+
+  #{&}__icon {
+    font-size: px-to-rem(20);
+    color: $primary-highlight-color;
+    margin: 0 0 0 px-to-rem(10);
+  }
+
+  #{&}__icon--history:hover {
+    color: rgb(175, 95, 67);
+  }
+
+  #{&}__btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0 px-to-rem(35) 0 0;
   }
 }
 
@@ -41,12 +64,32 @@ body {
   position: relative;
   overflow: hidden;
   border: $border-color solid 1px;
+  z-index: 1;
 
   #{&}__main-title {
     color: $primary-text-color;
     font-weight: 500;
     font-size: px-to-rem(24);
     margin: px-to-rem(10) 0;
+  }
+}
+
+.response {
+  grid-area: response;
+  padding: 0 2.1875rem;
+  position: relative;
+  overflow: hidden;
+  #{&}__main-title {
+    color: $primary-text-color;
+    font-weight: 500;
+    font-size: px-to-rem(24);
+    margin: px-to-rem(15) 0;
+  }
+  #{&}__secondary-title {
+    color: $secondary-text-color;
+    font-weight: 100;
+    font-size: px-to-rem(18);
+    margin: px-to-rem(15) 0;
   }
 }
 
