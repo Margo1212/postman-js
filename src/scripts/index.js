@@ -1,15 +1,17 @@
 import createTag from "./utils/createTag.js";
 import httpMethods from "./utils/httpMethods.js";
+import openTab from "./request-info/request-info";
 import makeRequestAsync from "../scripts/send/sendRequest";
 import promiseResolved from "./send/promiseResolved.js";
+import addHeader from "./headers/addHeader";
 import CodeMirror from "codemirror";
+
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/yonce.css";
 import "codemirror/mode/javascript/javascript.js";
 import "codemirror/addon/lint/lint.js";
 import "codemirror/addon/lint/lint.css";
 import "codemirror/addon/lint/json-lint.js";
-import addHeader from "./headers/addHeader";
 
 //Send request DOM API elements
 const divSend = createTag({ className: "send" });
@@ -50,7 +52,7 @@ const requestInfo = createTag({
 const requestInfoMainTitle = createTag({
   tagName: "h2",
   className: "request-info__main-title",
-  tagText: "Request info",
+  tagText: "Request information",
 });
 
 const headersButton = createTag({
@@ -169,6 +171,7 @@ const responseBodyPretty = CodeMirror.fromTextArea(responseBodyPrettyTextArea, {
 
 document.body.appendChild(requestInfo);
 
+openTab();
 // -->
 addHeader();
 // Accepting request with the Enter key

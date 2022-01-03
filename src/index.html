@@ -10,19 +10,30 @@
       rel="stylesheet"
     />
     <title>PostmanJS</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script src="https://unpkg.com/jsonlint@1.6.3/web/jsonlint.js"></script>
     <script src="scripts/index.js" async defer type="module"></script>
   </head>
   <body>
+    <header class="header">
+      <div class="header__container">
+        <h2 class="header__title">Postman-js</h2>
+      </div>
+      <div class="header__container"></div>
+    </header>
+
     <section class="request-info">
-      <h2 class="request-info__main-title">Request information</h2>
-      <button class="request-info__btn">Headers</button>
-      <button class="request-info__btn">Body</button>
+      <!--      <h2 class="request-info__main-title">Request information</h2>-->
+      <!--      <button class="request-info__btn">Headers</button>-->
+      <!--      <button class="request-info__btn">Body</button>-->
 
       <div class="request-info__headers">
         <div class="request-info__item"></div>
-        <div class="request-info__item request-info__item--th">Key</div>
-        <div class="request-info__item request-info__item--th">Value</div>
+        <div class="request-info__item">Key</div>
+        <div class="request-info__item">Value</div>
         <div class="request-info__item"></div>
         <div class="request-info__item"></div>
         <div class="request-info__item">
@@ -34,15 +45,15 @@
         <div class="request-info__item"></div>
       </div>
 
-      <div class="request-info__body">
-        <form method="" action="" class="request-info__body-form">
-          <label for="textarea"></label>
-          <textarea
-            id="textarea"
-            class="request-info__body-text-box"
-          ></textarea>
-        </form>
-      </div>
+      <!--      <div class="request-info__body">-->
+      <!--        <form method="" action="" class="request-info__body-form">-->
+      <!--          <label for="textarea"></label>-->
+      <!--          <textarea-->
+      <!--            id="textarea"-->
+      <!--            class="request-info__body-text-box"-->
+      <!--          ></textarea>-->
+      <!--        </form>-->
+      <!--      </div>-->
     </section>
     <section class="headers-markup">
       <div id="headers">
