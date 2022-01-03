@@ -19,6 +19,8 @@ const addHeaders = () => {
     const newInputKey = document.createElement("input");
     const newInputValue = document.createElement("input");
     newInputKey.setAttribute("type", "text");
+    newInputKey.classList.add("row-input");
+    newInputValue.classList.add("row-input");
     newInputValue.setAttribute("type", "text");
     newInputKey.setAttribute("placeholder", "key");
     newInputValue.setAttribute("placeholder", "value");
