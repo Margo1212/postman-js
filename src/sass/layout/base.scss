@@ -7,7 +7,7 @@ body {
   font-family: $base-font-family;
   font-size: #{$base-font-size}px;
   display: grid;
-  grid-template-rows: auto auto px-to-rem(290) 1fr;
+  grid-template-rows: auto auto px-to-rem(290) px-to-rem(500);
   grid-template-areas:
     "header"
     "name"
@@ -78,6 +78,7 @@ body {
   grid-area: response;
   padding: 0 2.1875rem;
   position: relative;
+  overflow: hidden;
   #{&}__main-title {
     color: $primary-text-color;
     font-weight: 500;
