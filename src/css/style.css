@@ -354,18 +354,37 @@ body {
 .header {
   grid-area: header;
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 12.5rem 1fr;
 }
 .header .header__container {
   border: #cdcdcd solid 1px;
   display: flex;
   align-items: center;
+}
+.header .header__container:first-of-type {
   justify-content: center;
+}
+.header .header__container:last-of-type {
+  justify-content: end;
 }
 .header .header__title {
   color: white;
   font-weight: 500;
   font-size: 1.125rem;
+}
+.header .header__icon {
+  font-size: 1.25rem;
+  color: #ff6c37;
+  margin: 0 0 0 0.625rem;
+}
+.header .header__icon--history:hover {
+  color: #af5f43;
+}
+.header .header__btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 0 2.1875rem 0 0;
 }
 
 .request-info {
@@ -374,6 +393,7 @@ body {
   position: relative;
   overflow: hidden;
   border: #cdcdcd solid 1px;
+  z-index: 1;
 }
 .request-info .request-info__main-title {
   color: white;
@@ -426,6 +446,7 @@ body {
   margin: 0;
   resize: none;
   padding: 0.625rem;
+  overflow: hidden;
 }
 
 .cm-s-yonce.CodeMirror {
@@ -456,4 +477,28 @@ body {
 
 .request-info .request-info__btn:focus {
   background: linear-gradient(0deg, #ff6c37 7%, #212121 7%);
+}
+
+.response .response__btn {
+  border: white solid 1px;
+  color: white;
+  font-size: 0.875rem;
+  padding: 0.3125rem 1.5625rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: #212121;
+}
+
+.response .response__btn:hover {
+  border: #959595 solid 1px;
+  color: #959595;
+}
+
+.response .response__btn:focus {
+  border: #ff6c37 solid 1px;
+  color: #ff6c37;
+}
+
+.response .response__btn:last-of-type {
+  margin: 0 0.9375rem;
 }
