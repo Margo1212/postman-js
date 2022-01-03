@@ -501,4 +501,26 @@ body {
 
 .response .response__btn:last-of-type {
   margin: 0 0.9375rem;
+.row {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.headers-markup {
+  position: absolute;
+  top: 800px;
+}
+.list-container {
+  list-style: none;
+  background-color: #2b2b2b;
+  padding: 0;
+}
+.list-container li {
+  border: #303030 1px solid;
+  min-height: 25px;
+  border-radius: 3px;
+  background-color: #2b2b2b;
+  color: #a6a6a6;
+  padding-top: 4px;
+  padding-left: 20px;
 }
