@@ -439,3 +439,27 @@ body {
 .request-info .request-info__btn:focus {
   background: linear-gradient(0deg, #ff6c37 7%, #212121 7%);
 }
+
+.row {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.headers-markup {
+  position: absolute;
+  top: 800px;
+}
+.list-container {
+  list-style: none;
+  background-color: #2b2b2b;
+  padding: 0;
+}
+.list-container li {
+  border: #303030 1px solid;
+  min-height: 25px;
+  border-radius: 3px;
+  background-color: #2b2b2b;
+  color: #a6a6a6;
+  padding-top: 4px;
+  padding-left: 20px;
+}
