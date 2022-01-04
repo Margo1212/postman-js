@@ -5,7 +5,6 @@ const addHeaders = () => {
   const form = document.getElementById("headers");
   const parentDiv = form.children;
   const btn = document.getElementById("btn");
-  const btnForm = document.getElementById("btn-form");
   const suggestion = document.getElementById("list-container");
   let lastRow = document.querySelectorAll(".row");
   const inp = document.getElementById("first__input");
@@ -35,9 +34,6 @@ const addHeaders = () => {
     });
     inpst = selectedInput;
   });
-  btnForm.addEventListener("click", () => {
-    generateObjHeader(Headers);
-  });
 
   function generateObjHeader() {
     let headers = [];
@@ -48,7 +44,6 @@ const addHeaders = () => {
     }
 
     headers = headers.filter((e) => !e.includes(""));
-
     return Object.fromEntries(headers);
   }
 

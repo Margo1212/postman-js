@@ -1,13 +1,18 @@
 .headers-markup {
   background-color: $primary-background-color;
   width: 100%;
+  display: none;
+
+  &.headers-opened{
+    display: block;
+  }
 
   .headers {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     overflow-y: scroll;
-    height: px-to-rem(81);
+    min-height: px-to-rem(81);
     position: relative;
   }
 

@@ -4,14 +4,12 @@ import makeRequestAsync from "../scripts/send/sendRequest";
 import promiseResolved from "./send/promiseResolved.js";
 import addHeaders from "./headers/addHeader";
 import CodeMirror from "codemirror";
-
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/yonce.css";
 import "codemirror/mode/javascript/javascript.js";
 import "codemirror/addon/lint/lint.js";
 import "codemirror/addon/lint/lint.css";
 import "codemirror/addon/lint/json-lint.js";
-import openTab from "./utils/openTab.js";
 
 //Header DOM API elements
 const headerSection = createTag({
@@ -96,11 +94,26 @@ const headersButton = createTag({
   tagName: "button",
   className: "request-info__btn",
   tagText: "Headers",
+  tagEvent: {
+    name: "click",
+    callback: () => {
+      headersMarkup.classList.add("headers-opened");
+      requestInfoBody.classList.remove("request-info__body-opened");
+    },
+  },
 });
+
 const bodyButton = createTag({
   tagName: "button",
   className: "request-info__btn",
   tagText: "Body",
+  tagEvent: {
+    name: "click",
+    callback: () => {
+      headersMarkup.classList.remove("headers-opened");
+      requestInfoBody.classList.add("request-info__body-opened");
+    },
+  },
 });
 
 //Body container and textarea
@@ -155,7 +168,7 @@ document.body.appendChild(requestInfo);
 //Headers tags
 const headersMarkup = createTag({
   tagName: "section",
-  className: "headers-markup",
+  className: ["headers-markup", "headers-opened"],
 });
 const headers = createTag({ tagId: "headers", className: "headers" });
 const headerKey = createTag({ className: "header-key", tagText: "Key" });
@@ -190,12 +203,6 @@ const addRowButton = createTag({
   tagId: "btn",
   tagText: "add row",
 });
-const addRowButtonForm = createTag({
-  tagName: "button",
-  className: "btn",
-  tagId: "btn-form",
-  tagText: "get form content",
-});
 
 //Headers structure
 headersMarkup.appendChild(headers);
@@ -206,8 +213,6 @@ row.appendChild(key);
 row.appendChild(value);
 headersMarkup.appendChild(listContainer);
 headersMarkup.appendChild(addRowButton);
-headersMarkup.appendChild(addRowButtonForm);
-
 requestInfo.appendChild(headersMarkup);
 
 //Response DOM API elements
@@ -229,18 +234,32 @@ const prettyButton = createTag({
   tagName: "button",
   className: "response__btn",
   tagText: "Pretty",
+  tagEvent: {
+    name: "click",
+    callback: () => {
+      responseBody.classList.add("active");
+      responseRaw.classList.remove("active");
+    },
+  },
 });
 const rawButton = createTag({
   tagName: "button",
   className: "response__btn",
   tagText: "Raw",
+  tagEvent: {
+    name: "click",
+    callback: () => {
+      responseBody.classList.remove("active");
+      responseRaw.classList.add("active");
+    },
+  },
 });
 let responseStatus = createTag({
   tagName: "p",
   className: "response__status",
 });
 
-const responseBody = createTag({ className: "response__body" });
+const responseBody = createTag({ className: ["response__body", "active"] });
 const responseRaw = createTag({ className: "response__raw" });
 
 const responseBodyPrettyTextArea = createTag({
@@ -271,20 +290,6 @@ const responseBodyPretty = CodeMirror.fromTextArea(responseBodyPrettyTextArea, {
 });
 
 document.body.appendChild(requestInfo);
-
-openTab({
-  newClass: "request-info__body-opened",
-  firstBtnSelector: ".request-info__btn:first-of-type",
-  secondBtnSelector: ".request-info__btn:nth-of-type(2)",
-  elementSelector: ".request-info__body",
-});
-
-openTab({
-  newClass: "response__raw-opened",
-  firstBtnSelector: ".response__btn:first-of-type",
-  secondBtnSelector: ".response__btn:nth-of-type(2)",
-  elementSelector: ".response__raw",
-});
 
 const getHeaders = addHeaders();
 // Accepting request with the Enter key
