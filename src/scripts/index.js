@@ -208,7 +208,7 @@ headersMarkup.appendChild(listContainer);
 headersMarkup.appendChild(addRowButton);
 headersMarkup.appendChild(addRowButtonForm);
 
-document.body.appendChild(headersMarkup);
+requestInfo.appendChild(headersMarkup);
 
 //Response DOM API elements
 const responseSection = createTag({
