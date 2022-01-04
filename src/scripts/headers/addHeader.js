@@ -44,10 +44,10 @@ const addHeaders = () => {
 
     for (let i = 0; i < parentDiv.length; i++) {
       const inputArr = Array.from(parentDiv[i].children);
-      headers.push(inputArr.map(x => x.value));
+      headers.push(inputArr.map((x) => x.value));
     }
 
-    headers = headers.filter(e => !e.includes(""));
+    headers = headers.filter((e) => !e.includes(""));
 
     return Object.fromEntries(headers);
   }
@@ -62,6 +62,5 @@ const addHeaders = () => {
 
   return generateObjHeader;
 };
-
 
 export default addHeaders;

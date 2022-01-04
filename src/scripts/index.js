@@ -247,7 +247,12 @@ export function setRequestBody() {
 }
 
 function handleSendAndDisplayRequest() {
-  makeRequestAsync(inputSend.value, selectSend.value, setRequestBody(), getHeaders())
+  makeRequestAsync(
+    inputSend.value,
+    selectSend.value,
+    setRequestBody(),
+    getHeaders()
+  )
     .then((response) =>
       promiseResolved(
         response,
