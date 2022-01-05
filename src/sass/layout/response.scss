@@ -1,9 +1,51 @@
 .response {
+    grid-area: response;
+    padding: 0 px-to-rem(20);
+    position: relative;
+    overflow: hidden;
+
+    #{&}__main-title {
+      color: $primary-text-color;
+      font-weight: 500;
+      font-size: px-to-rem(24);
+      margin: px-to-rem(10) 0;
+    }
+
+    #{&}__secondary-title {
+      color: $secondary-text-color;
+      font-weight: 100;
+      font-size: px-to-rem(18);
+      margin: px-to-rem(10) 0;
+    }
+
+  #{&}__btns-and-status {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: px-to-rem(10);
+  }
+
+  #{&}__body-raw-text-box {
+    margin: 0 px-to-rem(20);
+    min-width: 94%;
+    max-width: 94%;
+    min-height: px-to-rem(165);
+    max-height: px-to-rem(165);
+    background-color: $secondary-background-color;
+    color: $primary-text-color;
+    font-size: px-to-rem(14);
+    font-weight: 100;
+
+    &:focus-visible {
+      outline: $primary-highlight-color solid 1px;
+    }
+  }
+
   #{&}__body {
     width: 100%;
     position: absolute;
     left: 100%;
-    padding: 0 px-to-rem(35);
+    padding: 0 px-to-rem(20);
 
     &.active {
       left: 0;
@@ -22,5 +64,6 @@
 
   #{&}__status {
     color: $success-highlight-color;
+    margin: 0;
   }
 }

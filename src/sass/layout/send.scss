@@ -1,32 +1,59 @@
 .send {
   display: grid;
   grid-area: name;
-  grid-template-columns: 1fr 14fr 1fr;
+  grid-template-columns: 3fr 11fr 1fr;
+  padding: 0 px-to-rem(20);
+  border-bottom: $border-color solid 1px;
 
   #{&}__submit {
-    background-color: #1e61d9;
-    color: white;
-    border-color: #1e61d9;
+    background-color: $secondary-highlight-color;
+    color: $primary-text-color;
+    border: 0;
     border-radius: 5px;
     margin: 10px 0 10px 0;
+    padding: 0 10px;
     cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $hover-highlight-color;
+      transition: background-color 0.01s;
+    }
+    &:active {
+      background-color: $primary-highlight-color;
+      outline: $border-color solid 1px;
+    }
   }
 
   #{&}__url {
-    background-color: #212121;
+    background-color: $secondary-background-color;
     border-radius: 0 5px 5px 0;
     margin: 10px 10px 10px 0;
-    border-color: white;
-    color: white;
+    border: $secondary-text-color solid 1px;
+    color: $primary-text-color;
     padding: 10px;
+
+    &:focus-visible {
+      border: $primary-highlight-color solid 1px;
+      outline: none;
+    }
   }
 
   #{&}__methods {
-    background-color: #212121;
-    border-color: white;
-    color: white;
+    background-color: $secondary-background-color;
+    border: $secondary-text-color solid 1px;
+    border-right: 0;
+    color: $primary-text-color;
     border-radius: 8px 0 0 8px;
     cursor: pointer;
     margin: 10px 0px 10px 0px;
+    padding-left: 10px;
+
+    &:focus-visible {
+      border: $primary-highlight-color solid 1px;
+      border-right: 0;
+      outline: none;
+      -webkit-text-fill-color: $primary-highlight-color;
+    }
   }
 }
