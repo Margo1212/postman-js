@@ -39,11 +39,11 @@ have made.
 
 ## Team
 
-- Marharyta Leśniak - ![Logo](https://postmanblob402.blob.core.windows.net/postmanicons/gh-icon.png) [Github](https://github.com/Margo1212) ![Logo](https://findicons.com/files/icons/2052/social_network/32/linkedin.png) [LinkedIn](https://www.linkedin.com/in/marharyta-le%C5%9Bniak-6a9070216/)
-- Aleksandra Tarnawska - ![Logo](https://postmanblob402.blob.core.windows.net/postmanicons/gh-icon.png) [Guthub](https://github.com/Aleksandra-Tarnawska) ![Logo](https://findicons.com/files/icons/2052/social_network/32/linkedin.png) [LinkedIn](https://www.linkedin.com/in/aleksandra-tarnawska/)
-- Ewelina Występek - ![Logo](https://postmanblob402.blob.core.windows.net/postmanicons/gh-icon.png) [Guthub](https://github.com/evelkaw) ![Logo](https://findicons.com/files/icons/2052/social_network/32/linkedin.png) [LinkedIn](https://www.linkedin.com/in/ewelina-wystepek/)
-- Mateusz Zając - ![Logo](https://postmanblob402.blob.core.windows.net/postmanicons/gh-icon.png) [Guthub](https://github.com/matizaj) ![Logo](https://findicons.com/files/icons/2052/social_network/32/linkedin.png) [LinkedIn](https://www.linkedin.com/in/mateusz-zaj%C4%85c-0211a781/)
-- Szymon Kwak - ![Logo](https://postmanblob402.blob.core.windows.net/postmanicons/gh-icon.png) [Guthub](https://github.com/szymonkwak) ![Logo](https://findicons.com/files/icons/2052/social_network/32/linkedin.png) [LinkedIn](https://www.linkedin.com/in/szymon-kwak-05ba13228/)
+- Marharyta Leśniak - ![Logo](https://postmanblob402.blob.core.windows.net/icons/gh-icon.png) [Github](https://github.com/Margo1212) ![Logo](https://postmanblob402.blob.core.windows.net/icons/li-icon.png) [LinkedIn](https://www.linkedin.com/in/marharyta-le%C5%9Bniak-6a9070216/)
+- Aleksandra Tarnawska - ![Logo](https://postmanblob402.blob.core.windows.net/icons/gh-icon.png) [Guthub](https://github.com/Aleksandra-Tarnawska) ![Logo](https://postmanblob402.blob.core.windows.net/icons/li-icon.png) [LinkedIn](https://www.linkedin.com/in/aleksandra-tarnawska/)
+- Ewelina Występek - ![Logo](https://postmanblob402.blob.core.windows.net/icons/gh-icon.png) [Guthub](https://github.com/evelkaw) ![Logo](https://postmanblob402.blob.core.windows.net/icons/li-icon.png) [LinkedIn](https://www.linkedin.com/in/ewelina-wystepek/)
+- Mateusz Zając - ![Logo](https://postmanblob402.blob.core.windows.net/icons/gh-icon.png) [Guthub](https://github.com/matizaj) ![Logo](https://postmanblob402.blob.core.windows.net/icons/li-icon.png) [LinkedIn](https://www.linkedin.com/in/mateusz-zaj%C4%85c-0211a781/)
+- Szymon Kwak - ![Logo](https://postmanblob402.blob.core.windows.net/icons/gh-icon.png) [Guthub](https://github.com/szymonkwak) ![Logo](https://postmanblob402.blob.core.windows.net/icons/li-icon.png) [LinkedIn](https://www.linkedin.com/in/szymon-kwak-05ba13228/)
 
 ## License
 
