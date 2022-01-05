@@ -37,7 +37,7 @@ In the next part of the application "Response" you will receive HTML response, o
 response status (200 it is stated that everything was done). In the History you will find a list of all the requests you
 have made.
 
-## Team ![Logo](https://postmanblob402.blob.core.windows.net/icons/team-logo.png)
+## Team ![Logo](https://postmanblob402.blob.core.windows.net/icons/logo-team.png)
 
 - Marharyta Leśniak - ![Logo](https://postmanblob402.blob.core.windows.net/icons/gh-icon.png) [Github](https://github.com/Margo1212) ![Logo](https://postmanblob402.blob.core.windows.net/icons/li-icon.png) [LinkedIn](https://www.linkedin.com/in/marharyta-le%C5%9Bniak-6a9070216/)
 - Aleksandra Tarnawska - ![Logo](https://postmanblob402.blob.core.windows.net/icons/gh-icon.png) [Guthub](https://github.com/Aleksandra-Tarnawska) ![Logo](https://postmanblob402.blob.core.windows.net/icons/li-icon.png) [LinkedIn](https://www.linkedin.com/in/aleksandra-tarnawska/)
