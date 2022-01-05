@@ -199,7 +199,7 @@ const addRowButton = createTag({
   tagName: "button",
   className: "btn",
   tagId: "btn",
-  tagText: "add row",
+  tagText: "Add header",
 });
 
 //Headers structure
