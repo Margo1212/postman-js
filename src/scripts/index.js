@@ -163,8 +163,6 @@ const requestInfoBodyTextArea = CodeMirror.fromTextArea(
   }
 );
 
-document.body.appendChild(requestInfo);
-
 //Headers tags
 const headersMarkup = createTag({
   tagName: "section",
@@ -230,6 +228,9 @@ const responseSecondaryTitle = createTag({
   className: "response__secondary-title",
   tagText: "Body",
 });
+const responseBtnsAndStatus = createTag({
+  className: "response__btns-and-status",
+});
 const prettyButton = createTag({
   tagName: "button",
   className: "response__btn",
@@ -273,9 +274,10 @@ const responseBodyRaw = createTag({
 
 responseSection.appendChild(responseMainTitle);
 responseSection.appendChild(responseSecondaryTitle);
-responseSection.appendChild(prettyButton);
-responseSection.appendChild(rawButton);
-responseSection.appendChild(responseStatus);
+responseSection.appendChild(responseBtnsAndStatus);
+responseBtnsAndStatus.appendChild(prettyButton);
+responseBtnsAndStatus.appendChild(rawButton);
+responseBtnsAndStatus.appendChild(responseStatus);
 responseSection.appendChild(responseBody);
 responseSection.appendChild(responseRaw);
 responseBody.appendChild(responseBodyPrettyTextArea);
@@ -289,7 +291,12 @@ const responseBodyPretty = CodeMirror.fromTextArea(responseBodyPrettyTextArea, {
   lineWrapping: true,
 });
 
-document.body.appendChild(requestInfo);
+//Wrapping the entire application in a root div
+const root = createTag({ className: "root" });
+root.appendChild(headerSection);
+root.appendChild(divSend);
+root.appendChild(requestInfo);
+root.appendChild(responseSection);
 
 const getHeaders = addHeaders();
 // Accepting request with the Enter key
